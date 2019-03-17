@@ -318,7 +318,7 @@ def dump_kline_df(dump_df, symbol_key, date_key):
             # 选取dump_df.date > df_end部分
             new_df = dump_df[dump_df.date > df_end]
             # concat连起来两部分
-            new_df = pd.concat([h5_df, new_df])
+            new_df = pd.concat([h5_df, new_df],sort=True)
             # 最终保存的为new_df
             dump_kline_func(symbol_key, date_key, new_df, delete_key=df_date_key)
         else:
